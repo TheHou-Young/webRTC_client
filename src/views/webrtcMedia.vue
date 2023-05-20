@@ -101,6 +101,7 @@ export default {
           video: true,
           audio: true,
         });
+        // 同理于AddStream
         this.$refs.local_video.srcObject = stream;
       } catch {
         return this.$notify.error({
@@ -163,6 +164,7 @@ export default {
       // 每个Peer建立一个track事件的响应程序，这个事件会在远程Peer添加一个track到其stream上时被触发。
       this.peer.ontrack = (e) => {
         if (e && e.streams) {
+          // 同理于onAddStresm
           this.$refs.remote_video.srcObject = e.streams[0];
           this.loading = false;
         }
